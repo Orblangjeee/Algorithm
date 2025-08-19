@@ -1,0 +1,24 @@
+using System;
+
+public class Solution
+{
+    int answer;
+    public int solution(int num, int n)
+    {
+        if (num >= 2 && num <= 100 && n >= 2 && n <= 9)
+        {
+           if (num % n == 0)
+            {
+                answer = 1;
+               
+            }
+            else
+            {
+                answer = 0;
+            }
+            
+        } 
+       return answer;
+       
+    }
+}
