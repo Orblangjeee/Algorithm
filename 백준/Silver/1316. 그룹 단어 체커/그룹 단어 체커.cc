@@ -1,49 +1,33 @@
 #include <iostream>
+#include <string>
 
-
-bool CheckGroupWord(std::string str) {
-	std::string appear;
-
-	for (int j = 0; j < str.length(); j++) {
-
-		if (j == 0) {
-			appear += str[j];
-			continue;
-		}
-
-		if (appear[appear.length() - 1] == str[j]) {
-			continue;
-		}
-		else {
-
-			for (int k = 0; k < appear.length(); k++) {
-				if (appear[k] == str[j]) {
-					return false;
-				}
-			}
-
-			appear += str[j];
-		}
-	}
-
-	return true;
-}
-
+using namespace std;
 
 int main()
 {
-	int inputCount = 0;
-	int count = 0;
-	std::string inputStr;
-	std::cin >> inputCount;
+
+	int N, count = 0;
+	cin >> N;
 	
-	for (int i = 0; i < inputCount; i++) {
-		std::cin >> inputStr;
-		
-		if (!CheckGroupWord(inputStr))
-			count++;
+	for (int i= 0; i < N; i++) {
+		string str;
+		cin >> str;
+
+		char last = ' ';
+		bool visited[26] = { false };
+
+		for (char c : str) {
+			if (visited[c - 'a'] && last != c) {
+				count++;
+				break;
+			}
+			else {
+				last = c;
+				visited[c - 'a'] = true;
+			}
+		}
 	}
 
-	std::cout << inputCount - count;
-}
+	cout << N - count;
 
+}
