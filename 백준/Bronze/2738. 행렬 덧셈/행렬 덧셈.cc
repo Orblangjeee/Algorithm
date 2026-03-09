@@ -8,12 +8,12 @@ int main()
 	int row, col;
 	cin >> row >> col;
 
-	vector<int> grid(row * col * 2);
+	int size = row * col * 2;
+	vector<int> grid(size);
 
-	for (int i = 0; i < row * col * 2; i++)
+	for (int i = 0; i < size; i++)
 		cin >> grid[i];
 
-
-	for (int k = 0; k < row * col; k++)
-		cout << grid[k] + grid[k + row * col] << " ";
+	for (int k = 0; k < size/2; k++)
+		cout << grid[k] + grid[k + size/2] << " ";
 }
