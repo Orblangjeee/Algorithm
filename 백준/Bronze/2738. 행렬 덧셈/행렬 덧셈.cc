@@ -14,6 +14,8 @@ int main()
 	for (int i = 0; i < size; i++)
 		cin >> grid[i];
 
-	for (int k = 0; k < size/2; k++)
-		cout << grid[k] + grid[k + size/2] << " ";
+	for (int k = 0; k < size / 2; k++) {
+		cout << grid[k] + grid[k + size / 2] << " ";
+		if ((k % col) == (col - 1)) cout << "\n";
+	}
 }
