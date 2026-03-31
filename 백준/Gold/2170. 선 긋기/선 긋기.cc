@@ -6,16 +6,17 @@ using namespace std;
 
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    
-	vector<pair<int, int>> v;
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+
 	int count, lineF, lineL;
 	long long result = 0;
+
 	cin >> count;
-	while (count--) {
-		cin >> lineF >> lineL;
-		v.push_back(make_pair(lineF, lineL));
+	vector<pair<int, int>> v(count);
+
+	for (int i = 0; i < count; ++i) {
+		cin >> v[i].first >> v[i].second;
 	}
 	
 	sort(v.begin(), v.end());
@@ -23,7 +24,7 @@ int main()
 	lineF = v[0].first;
 	lineL = v[0].second;
 
-	for (int i = 1; i < v.size(); i++) {
+	for (int i = 1; i < v.size(); ++i) {
 		
 		if (v[i].first <= lineL) {
 			lineL = max(v[i].second, lineL);
