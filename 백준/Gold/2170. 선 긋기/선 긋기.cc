@@ -24,15 +24,15 @@ int main()
 	lineF = v[0].first;
 	lineL = v[0].second;
 
-	for (int i = 1; i < v.size(); ++i) {
+	for (const pair<int,int>& p : v) {
 		
-		if (v[i].first <= lineL) {
-			lineL = max(v[i].second, lineL);
+		if (p.first <= lineL) {
+			lineL = max(p.second, lineL);
 		}
 		else {
 			result += (lineL - lineF);
-			lineF = v[i].first;
-			lineL = v[i].second;
+			lineF = p.first;
+			lineL = p.second;
 		}
 	}
 	result += (lineL - lineF);
