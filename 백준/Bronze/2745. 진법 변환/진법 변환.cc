@@ -4,32 +4,23 @@ using namespace std;
 
 int main()
 {
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
 
 	int B, result = 0;
 	string N;
 	cin >> N >> B;
 	
-	for (int i = 0; i < N.length(); ++i) {
-		
-		int pow = N.length() - i - 1;
+	for (int i = 0; i < N.length(); ++i) 
+	{
 		int num = N[i];
 
 		if (num >= '0' && num < 'A')
-		{
 			num -= '0';
-			while (pow--) {
-				num *= B;
-			}
-			result += num;
-		}
-		else 
-		{
+		else
 			num += (-'A' + 10);
-			while (pow--) {
-				num *= B;
-			}
-			result += num;
-		}
+
+		result = (result * B + num);
 	}
 
 	std::cout << result;
