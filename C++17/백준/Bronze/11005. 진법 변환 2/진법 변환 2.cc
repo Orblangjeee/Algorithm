@@ -6,24 +6,20 @@ using namespace std;
 
 int main()
 {
-	int N, B, rem;
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+
+
+	string chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	int N, B;
 	string result = "";
 	cin >> N >> B;
 
 	while (N) {
-		rem = N % B;
-		if (rem >= 10)
-		{
-			result += (char)(rem + 'A' - 10);
-		}
-		else 
-		{
-			result += (char)(rem + '0');
-		}
+		result += chars[N % B];	
 		N /= B;
 	}
 
 	reverse(result.begin(), result.end());
 	cout << result;
-
 }
