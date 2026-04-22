@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -9,28 +9,29 @@ int main()
 	ios_base::sync_with_stdio(false);
 
 	int n = 0;
+    
+    while (cin >> n && n != -1) {
+        vector<int> div;
+        int sum = 0;
+        for (int i = 1; i <= n / 2; ++i) {
+            if (n % i == 0) {
+                div.push_back(i);
+                sum += i;
+            }
+        }
 
-	while (true) {
-		int sum = 1;
-		string result = "1";
-		cin >> n;
-
-		if (n == -1)
-			return 0;
-
-		for (int i = 2; i < n; i++) {
-			if (n % i == 0) {
-				result += " + " + to_string(i);
-				sum += i;
-			}
-		}
-
-		if (sum == n) {
-			cout << n << " = " << result << "\n";
-		}
-		else {
-			cout << n << " is NOT perfect." << "\n";
-		}
-	}
+        if (sum == n) {
+            cout << n << " = ";
+            for (int i = 0; i < div.size(); ++i) {
+                cout << div[i];
+                if (i < div.size() - 1) cout << " + ";
+            }
+            cout << "\n";
+        }
+        else {
+            cout << n << " is NOT perfect.\n";
+        }
+    }
+	
 }
 
